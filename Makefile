@@ -6,7 +6,7 @@
 #    By: mabouce <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/29 17:41:33 by mabouce           #+#    #+#              #
-#    Updated: 2019/03/10 15:24:23 by mabouce          ###   ########.fr        #
+#    Updated: 2019/03/27 11:45:46 by mabouce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,7 @@ OBJS_PUSH			=	$(patsubst $(SRCS_PUSH_PATH)%.c,	\
 						$(OBJS_PUSH_PATH)%.o, $(SRCS_PUSH))
 
 
-.PHONY				=	all $(NAME1) $(NAME2) clean fclean re
+.PHONY				:	all $(NAME1) $(NAME2) clean fclean re
 
 _UNDER=$'\x1b[4m$'
 _GREEN=$'\x1b[32m$'
@@ -96,7 +96,7 @@ $(NAME1): $(OBJS_CHECK) $(OBJS_COMMON)
 	@echo "$(_YELLOW)		COMPILING MINIPRINTF$(_END)"
 	@echo "$(_WHITE)====================================================$(_END)"
 	@echo "\n\n"
-	@make -C $(MINIPRINTF) -j
+	@make -sC $(MINIPRINTF) -j
 	@cp $(MINIPRINTF)/libftminiprintf.a .
 	@echo "$(_WHITE)====================================================$(_END)"
 	@echo "$(_YELLOW)		COMPILING CHECKER$(_END)"
@@ -117,7 +117,7 @@ $(NAME2): $(OBJS_PUSH) $(OBJS_COMMON)
 	@echo "$(_YELLOW)		COMPILING MINIPRINTF$(_END)"
 	@echo "$(_WHITE)====================================================$(_END)"
 	@echo "\n\n"
-	@make -C $(MINIPRINTF) -j
+	@make -sC $(MINIPRINTF) -j
 	@cp $(MINIPRINTF)/libftminiprintf.a .
 	@echo "$(_WHITE)====================================================$(_END)"
 	@echo "$(_YELLOW)		COMPILING PUSH_SWAP$(_END)"
